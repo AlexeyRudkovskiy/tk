@@ -1,0 +1,1 @@
+<a href="mailto:{{ $record->author->email }}">{{ $record->author->full_name }}</a>

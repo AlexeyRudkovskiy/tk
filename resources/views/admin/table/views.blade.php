@@ -1,0 +1,1 @@
+views: <b>{{ $data->id }}</b>
