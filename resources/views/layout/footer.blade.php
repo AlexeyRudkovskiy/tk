@@ -18,7 +18,7 @@
                 <ul>
                     <li class="navigation-header"><b>Корисні посилання</b></li>
                     @foreach($header_menu->items as $item)
-                    @php($item = $menu->getLinkInfo($item))
+                    @php($item = $header_menu->getLinkInfo($item))
                     <li><a href="{{ $item['url'] }}">{{ $item['text'] }}</a></li>
                     @endforeach
                 </ul>
