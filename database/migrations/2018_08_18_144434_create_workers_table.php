@@ -19,7 +19,7 @@ class CreateWorkersTable extends Migration
             $table->string('full_name');
             $table->date('work_from');
 
-            $table->integer('photo_id');
+            $table->integer('photo_id', false, true);
 
             $table->timestamps();
 
