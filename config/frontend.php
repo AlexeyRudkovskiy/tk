@@ -2,7 +2,7 @@
 
 return [
     'pagination' => [
-        'on_page' => 1
+        'on_page' => 15
     ],
     'title' => 'Website name'
 ];
