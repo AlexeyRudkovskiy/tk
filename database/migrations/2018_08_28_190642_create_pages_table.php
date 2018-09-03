@@ -24,6 +24,8 @@ class CreatePagesTable extends Migration
             $table->timestamps();
             $table->foreign('author_id')->references('id')->on('users');
         });
+
+        \DB::statement('ALTER TABLE pages ADD FULLTEXT full(title, content)');
     }
 
     /**

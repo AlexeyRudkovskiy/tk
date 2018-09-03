@@ -9,6 +9,7 @@
 namespace App\Http\ViewComposers;
 
 
+use App\Post;
 use ARudkovskiy\Admin\Container\AdminContainerInterface;
 use ARudkovskiy\Admin\Models\Menu;
 use Illuminate\View\View;
@@ -40,6 +41,7 @@ class FrontendViewComposer
         view()->share('current_page', \Route::getCurrentRoute()->getName());
         view()->share('menus', $menus);
         view()->share('header_menu', $headerMenu);
+        view()->share('promoted_posts', Post::promoted()->latest()->get());
     }
 
 }

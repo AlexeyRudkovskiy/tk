@@ -28,6 +28,13 @@ return [
                     'intelligent' => true
                 ],
                 'name' => 'gallery-item'
+            ],
+            [
+                'size' => [ 1366, 493 ],
+                'crop' => [
+                    'intelligent' => true
+                ],
+                'name' => 'promo'
             ]
         ]
     ],

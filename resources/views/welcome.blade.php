@@ -8,7 +8,7 @@
                 @if($post->preview !== null)
                 <img src="{{ $post->preview->getFullPathForThumbnail('150x150') }}" class="post-thumbnail" />
                 @endif
-                {!! $post->content !!}
+                {!! $post->getShortText() !!}
             </div>
             <div class="clearfix"></div>
             <div class="post-footer">
@@ -17,5 +17,7 @@
             </div>
         </div>
     @endforeach
-    @include('layout.pagination')
+    <div class="offset-top">
+        {{ $posts->links() }}
+    </div>
 @endsection

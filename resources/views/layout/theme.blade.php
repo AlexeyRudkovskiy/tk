@@ -21,15 +21,17 @@
     </div>
 </div>
 @if($current_page === 'homepage')
-<div class="header-slider content-wrapper" style="background-image: url('http://miriadna.com/desctopwalls/images/max/Green-fiord-(Norway).jpg');">
+@foreach($promoted_posts as $post)
+<div class="header-slider content-wrapper" style="background-image: url('{{ $post->preview->getThumbnailPath('promo') }}');">
     <div class="slider-navigation-previous"><img src="/assets/slider-previous-icon.png" /></div>
     <div class="slider-navigation-forward"><img src="/assets/slider-forward-icon.png" /></div>
     <div class="header-slider-description">
-        <div class="slider-description-title"><h2>Запрошуємо на безкоштовну олімпіаду-тренінг до ЗНО з фізики</h2></div>
+        <div class="slider-description-title"><h2>{{ $post->title }}</h2></div>
         <div class="slider-description-content"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem fuga necessitatibus placeat reprehenderit similique totam!</span></div>
-        <div class="slider-description-button"><a href="/single-post.html">Перейти до запису</a></div>
+        <div class="slider-description-button"><a href="{{ $post->getUrl() }}">Перейти до запису</a></div>
     </div>
 </div>
+@endforeach
 @endif
 <div class="content-wrapper">
     <div class="app-container">

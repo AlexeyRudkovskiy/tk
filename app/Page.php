@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Traits\FullTextSearch;
 use ARudkovskiy\Admin\Models\Category;
 use ARudkovskiy\Admin\Models\User;
 use ARudkovskiy\Admin\Traits\Menuable;
@@ -11,6 +12,11 @@ class Page extends Model
 {
 
     use Menuable;
+    use FullTextSearch;
+
+    protected $searchable = [
+        'title', 'content'
+    ];
 
     public function author()
     {

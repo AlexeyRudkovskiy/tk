@@ -30,6 +30,8 @@ class CreatePostsTable extends Migration
             $table->foreign('author_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('preview_id')->references('id')->on('files')->onDelete('cascade');
         });
+
+        \DB::statement('ALTER TABLE posts ADD FULLTEXT full(title, content)');
     }
 
     /**

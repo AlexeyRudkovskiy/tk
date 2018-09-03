@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::paginate(config('frontend.pagination.on_page'));
         return view('home')
             ->with('posts', $posts);
     }
