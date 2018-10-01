@@ -47,22 +47,22 @@
 <div class="content-wrapper">
     <div class="app-container">
         <div class="app-sidebar">
-            <div class="sidebar-block">
-                <div class="sidebar-block-title">Меню</div>
-                <div class="sidebar-block-content">
-                    <ul class="menu-list">
-                        <li><a href="javascript:">Новини</a></li>
-                        <li><a href="javascript:">Про коледж</a></li>
-                        <li><a href="javascript:">Спеціальності</a></li>
-                        <li><a href="javascript:">Роботодавцям</a></li>
-                        <li><a href="javascript:">Спортивні досягнення</a></li>
-                        <li><a href="javascript:">Бібліотека</a></li>
-                        <li><a href="javascript:">Фотогалерея</a></li>
-                        <li><a href="javascript:">Публічна інформація</a></li>
-                        <li><a href="javascript:">Контакти</a></li>
-                    </ul>
-                </div>
-            </div>
+            {{--<div class="sidebar-block">--}}
+                {{--<div class="sidebar-block-title">Меню</div>--}}
+                {{--<div class="sidebar-block-content">--}}
+                    {{--<ul class="menu-list">--}}
+                        {{--<li><a href="javascript:">Новини</a></li>--}}
+                        {{--<li><a href="javascript:">Про коледж</a></li>--}}
+                        {{--<li><a href="javascript:">Спеціальності</a></li>--}}
+                        {{--<li><a href="javascript:">Роботодавцям</a></li>--}}
+                        {{--<li><a href="javascript:">Спортивні досягнення</a></li>--}}
+                        {{--<li><a href="javascript:">Бібліотека</a></li>--}}
+                        {{--<li><a href="javascript:">Фотогалерея</a></li>--}}
+                        {{--<li><a href="javascript:">Публічна інформація</a></li>--}}
+                        {{--<li><a href="javascript:">Контакти</a></li>--}}
+                    {{--</ul>--}}
+                {{--</div>--}}
+            {{--</div>--}}
             @foreach($menus['left-sidebar'] as $menu)
                 <div class="sidebar-block">
                     <div class="sidebar-block-title">{{ $menu->name }}</div>
