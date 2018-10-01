@@ -1,6 +1,6 @@
 <?php
 return array (
-  'director' => '1',
+  'director' => null,
   'director_slogan' => 'test',
   'address' => NULL,
   'phone_number' => '380660000000',

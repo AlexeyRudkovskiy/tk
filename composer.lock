@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AlexeyRudkovskiy/simpledashboard.git",
-                "reference": "b8fc30286bbd2e4e82ce1eb8dc5a17cead8874ce"
+                "reference": "2b41ffd04b783c74e123d634b19b06c3ebe8553f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AlexeyRudkovskiy/simpledashboard/zipball/b8fc30286bbd2e4e82ce1eb8dc5a17cead8874ce",
-                "reference": "b8fc30286bbd2e4e82ce1eb8dc5a17cead8874ce",
+                "url": "https://api.github.com/repos/AlexeyRudkovskiy/simpledashboard/zipball/2b41ffd04b783c74e123d634b19b06c3ebe8553f",
+                "reference": "2b41ffd04b783c74e123d634b19b06c3ebe8553f",
                 "shasum": ""
             },
             "require": {
@@ -50,7 +50,7 @@
                 }
             ],
             "description": "Admin dashboard",
-            "time": "2018-10-01 07:59:39"
+            "time": "2018-10-01T19:47:42+00:00"
         },
         {
             "name": "aws/aws-sdk-php",

@@ -22,7 +22,7 @@ class CreatePostsTable extends Migration
             $table->text('content_text');
 
             $table->integer('author_id', false, true);
-            $table->integer('preview_id', false, true);
+            $table->integer('preview_id', false, true)->nullable()->default(null);
 
             $table->boolean('is_promoting')->default(false);
 

@@ -46,7 +46,8 @@ $gallery-photo-height: 124px;
 
       img {
         width: 100%;
-        height: $gallery-photo-height;
+        //height: $gallery-photo-height;
+        vertical-align: middle;
       }
     }
   }

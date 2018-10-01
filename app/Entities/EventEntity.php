@@ -35,8 +35,10 @@ class EventEntity extends AbstractEntity
                 ->setOptions([
                     'config' => [
                         'foreign_field' => 'title',
-                        'model' => Post::class
-                    ]
+                        'model' => Post::class,
+                        'entity' => 'post'
+                    ],
+                    'select2' => true
                 ]),
             DateField::create('event_at')
         ];

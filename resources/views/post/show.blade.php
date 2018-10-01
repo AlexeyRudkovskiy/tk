@@ -4,7 +4,9 @@
     <div class="post-container post-full">
         <h2 class="post-title">{{ $post->title }}</h2>
         <div class="post-content">
+            @if($post->preview !== null)
             <img src="{{ $post->preview->getFullPathForThumbnail('default') }}" class="post-thumbnail zoomable-image" data-image="{{ $post->preview->full_path }}" />
+            @endif
             {!! $post->getFullText() !!}
         </div>
         <div class="clearfix"></div>

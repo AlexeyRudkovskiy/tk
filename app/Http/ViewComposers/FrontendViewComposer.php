@@ -28,16 +28,21 @@ class FrontendViewComposer
         $menus = [ 'left-sidebar' => collect([]), 'right-sidebar' => collect([]) ];
         $toolbarItems = [];
 
-        if (array_key_exists('_menus', $viewData)) {
-            $viewData['_menus']
-                ->each(function (Menu $menu) use ($menus) {
-                    if (!array_key_exists($menu->location, $menus)) {
-                        return;
-                    }
+        $pageMenus = Menu::where('without_categories', 1)->orderBy('order', 'asc')->get();
 
-                    $menus[$menu->location]->push($menu);
-                });
+        if (array_key_exists('_menus', $viewData)) {
+            $pageMenus = $pageMenus->merge($viewData['_menus']);
         }
+
+        $pageMenus
+            ->sortBy('order')
+            ->each(function (Menu $menu) use ($menus) {
+                if (!array_key_exists($menu->location, $menus)) {
+                    return;
+                }
+
+                $menus[$menu->location]->push($menu);
+            });
 
         /** @var AdminContainerInterface $adminContainer */
         $adminContainer = app()->make(AdminContainerInterface::class);
