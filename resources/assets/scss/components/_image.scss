@@ -1,0 +1,12 @@
+@import "../variables";
+@import "../mixins";
+
+.post-content {
+
+  .image-wrapper {
+    img {
+      width: 100%;
+    }
+  }
+
+}

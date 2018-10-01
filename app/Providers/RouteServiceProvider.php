@@ -39,7 +39,20 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
-        //
+        $path = request()->path();
+        if (!starts_with($path, '/')) {
+            $path = '/' . $path;
+        }
+
+        $dynamicRouterRule = \ARudkovskiy\Admin\Models\Route::whereUrl($path)->first();
+        if ($dynamicRouterRule !== null) {
+            \Route::get($dynamicRouterRule->url, function () use ($dynamicRouterRule) {
+                $action = $dynamicRouterRule->action;
+                $argument = $dynamicRouterRule->routable;
+
+                return \App::call($action, [ $argument ]);
+            });
+        }
     }
 
     /**

@@ -1,21 +1,43 @@
 {
-    "private": true,
-    "scripts": {
-        "dev": "npm run development",
-        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "watch-poll": "npm run watch -- --watch-poll",
-        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "prod": "npm run production",
-        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
-    },
-    "devDependencies": {
-        "axios": "^0.17",
-        "bootstrap-sass": "^3.3.7",
-        "cross-env": "^5.1",
-        "jquery": "^3.2",
-        "laravel-mix": "^1.0",
-        "lodash": "^4.17.4",
-        "vue": "^2.5.7"
-    }
+  "name": "tk-frontend.app",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx webpack --mode=development",
+    "build:watch": "npx webpack --watch --mode=development",
+    "build:prod": "npx webpack --mode=production",
+    "dev-server": "npx webpack-dev-server",
+    "start": "npm run build && npm run dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/AlexeyRudkovskiy/tk.git"
+  },
+  "author": {
+    "name": "Alexey Rudkovskiy",
+    "email": "alexteen12@gmail.com"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/AlexeyRudkovskiy/tk-frontend.app/issues"
+  },
+  "homepage": "https://github.com/AlexeyRudkovskiy/tk.app#README",
+  "devDependencies": {
+    "css-loader": "^0.28.11",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.2",
+    "style-loader": "^0.21.0",
+    "ts-loader": "^4.3.1",
+    "typescript": "^2.9.1",
+    "webpack": "^4.10.2",
+    "webpack-cli": "^3.0.1",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "dependencies": {
+    "@types/lodash": "^4.14.109",
+    "lodash": "^4.17.10",
+    "normalize.css": "^8.0.0"
+  }
 }

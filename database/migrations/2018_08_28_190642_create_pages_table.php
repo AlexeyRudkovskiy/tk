@@ -19,13 +19,14 @@ class CreatePagesTable extends Migration
             $table->string('title');
             $table->string('slug');
             $table->text('content');
+            $table->text('content_text');
             $table->integer('author_id', false, true);
 
             $table->timestamps();
             $table->foreign('author_id')->references('id')->on('users');
         });
 
-        \DB::statement('ALTER TABLE pages ADD FULLTEXT full(title, content)');
+        \DB::statement('ALTER TABLE pages ADD FULLTEXT full(title, content_text)');
     }
 
     /**

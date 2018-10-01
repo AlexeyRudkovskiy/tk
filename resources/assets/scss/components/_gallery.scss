@@ -1,0 +1,53 @@
+@import "../variables";
+
+$gallery-item-padding: 2.5px;
+$gallery-photo-height: 124px;
+
+.post-content {
+  .post-gallery {
+    -js-display: flex;
+    display: flex;
+    flex-wrap: wrap;
+
+    margin-top: $app-base-offset;
+    margin-bottom: $app-base-offset;
+
+    margin-left: -$gallery-item-padding;
+
+    .gallery-item {
+      width: 25%;
+
+      box-sizing: border-box;
+      padding: $gallery-item-padding;
+      padding-top: 0;
+
+      position: relative;
+      cursor: zoom-in;
+
+      &:hover {
+        &::after {
+          opacity: 1;
+        }
+      }
+
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(white, .25);
+        top: 0;
+        left: 0;
+
+        opacity: 0;
+        transition: 0.1s opacity;
+      }
+
+      img {
+        width: 100%;
+        height: $gallery-photo-height;
+      }
+    }
+  }
+}

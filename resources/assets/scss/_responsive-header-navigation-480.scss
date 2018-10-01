@@ -1,0 +1,81 @@
+@import "variables";
+
+.header-container {
+  .header-navigation {
+    padding-left: 0;
+    padding-right: 0;
+
+    .mobile-navigation-header {
+      display: flex;
+      padding: $app-padding;
+      padding-bottom: 0;
+      box-sizing: border-box;
+      align-items: center;
+
+      .website-title {
+        color: white;
+        opacity: 0.8;
+        width: auto;
+        font-size: 1.5rem;
+      }
+
+      .hamburger-menu {
+        display: block;
+        width: 36px;
+        margin-left: auto;
+
+        opacity: 0.8;
+
+        img {
+          vertical-align: middle;
+        }
+      }
+    }
+
+    ul {
+      width: 100%;
+      display: none;
+
+      &.visible {
+        display: block;
+      }
+
+      li {
+        display: block;
+        float: unset;
+        width: 100%;
+
+        &:last-child {
+          a {
+            padding-bottom: 0;
+          }
+        }
+
+        a {
+          margin: 0;
+          display: block;
+          padding: $app-padding;
+        }
+      }
+    }
+
+    .search-form-container {
+      float: unset;
+      padding: $app-padding;
+
+      form {
+
+        .search-field-container {
+          width: 100%;
+          top: 0;
+        }
+      }
+
+      &::after {
+        content: '';
+        display: block;
+        clear: both;
+      }
+    }
+  }
+}

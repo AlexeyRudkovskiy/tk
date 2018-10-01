@@ -1,0 +1,30 @@
+@import "variables";
+
+.footer-container {
+  .footer-offset {
+    display: none;
+  }
+
+  .footer-content {
+    width: 100%;
+    flex-wrap: wrap;
+
+    .contact-info-photo {
+      display: none;
+    }
+
+    .contact-info-content {
+      width: 100%;
+      flex-shrink: 0;
+      flex-grow: 1;
+
+      margin-left: 0;
+    }
+
+    .footer-navigation-links {
+      width: 100%;
+      margin-left: 0;
+      margin-top: $app-padding;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+@import "variables";
+@import "mixins";
+
+$content-max-width: 700px;
+
+.app-content-container {
+  -js-display: flex;
+  display: flex;
+
+  .app-content {
+    width: 100%;
+    padding-right: $app-base-offset;
+
+    max-width: $content-max-width;
+
+    box-sizing: border-box;
+  }
+
+  .app-content-sidebar {
+    width: 224px;
+    flex-shrink: 0;
+    flex-grow: 0;
+
+    .sidebar-block {
+      margin-left: 0;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+@import "variables";
+
+.header-container {
+  .header-navigation {
+    padding-left: $app-base-offset;
+    padding-right: $app-base-offset;
+    box-sizing: border-box;
+  }
+}

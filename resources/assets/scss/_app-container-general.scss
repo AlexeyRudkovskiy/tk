@@ -1,0 +1,33 @@
+@import "variables";
+@import "mixins";
+
+$content-min-width: 894px;
+
+.app-container {
+
+  -js-display: flex;
+  display: flex;
+
+  .app-sidebar, .app-content-container {
+    padding: $app-base-offset;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    flex-grow: 0;
+  }
+
+  .app-sidebar {
+    width: 24%;
+    min-width: $app-sidebar-block-width + $app-base-offset * 2;
+
+    padding-left: $app-content-side-padding;
+  }
+
+  .app-content-container {
+    width: 76%;
+    flex-shrink: 1;
+
+    background-color: white;
+
+    padding-right: $app-content-side-padding;
+  }
+}

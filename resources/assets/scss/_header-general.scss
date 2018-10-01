@@ -1,0 +1,12 @@
+@import "variables";
+
+$header-background-color: #3cc47c;
+
+.header-container {
+  width: 100%;
+  background-color: $header-background-color;
+}
+
+.header-wrapper {
+  width: 100%;
+}

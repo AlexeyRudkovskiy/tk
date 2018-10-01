@@ -1,0 +1,23 @@
+@import "variables";
+
+.app-container {
+  display: flex;
+  flex-wrap: wrap;
+
+  & > * {
+    width: 100%;
+  }
+
+  .app-sidebar, .app-content-container {
+    width: 100%;
+  }
+
+  .app-sidebar {
+    order: 2;
+  }
+
+  .app-content-container {
+    order: 1;
+  }
+
+}

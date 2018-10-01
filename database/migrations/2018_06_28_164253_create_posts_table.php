@@ -19,6 +19,7 @@ class CreatePostsTable extends Migration
             $table->string('slug');
             $table->string('title');
             $table->text('content');
+            $table->text('content_text');
 
             $table->integer('author_id', false, true);
             $table->integer('preview_id', false, true);
@@ -31,7 +32,7 @@ class CreatePostsTable extends Migration
             $table->foreign('preview_id')->references('id')->on('files')->onDelete('cascade');
         });
 
-        \DB::statement('ALTER TABLE posts ADD FULLTEXT full(title, content)');
+        \DB::statement('ALTER TABLE posts ADD FULLTEXT full(title, content_text)');
     }
 
     /**

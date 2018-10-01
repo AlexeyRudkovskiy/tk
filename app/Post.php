@@ -19,7 +19,8 @@ class Post extends Model
     use FullTextSearch;
 
     protected $casts = [
-        'content_schema' => 'json'
+        'content_schema' => 'json',
+        'is_promoting' => 'boolean'
     ];
 
     protected $searchable = [

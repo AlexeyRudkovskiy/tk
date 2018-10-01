@@ -1,0 +1,36 @@
+@import "../variables";
+
+.employer {
+  display: flex;
+  align-items: flex-start;
+
+  .employer-photo {
+    width: $employer-photo-width;
+
+    img {
+      vertical-align: middle;
+    }
+  }
+
+  .employer-description {
+    width: 100%;
+    padding-left: $app-padding;
+
+    box-sizing: border-box;
+
+    a {
+      color: rgba(black, .6);
+      text-decoration: none;
+
+      transition: 0.2s color;
+
+      &:hover {
+        color: $app-green-color;
+      }
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+  }
+}

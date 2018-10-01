@@ -2,36 +2,47 @@
 <body>
 <div class="header-container">
     <div class="header-navigation content-wrapper">
+        <div class="mobile-navigation-header">
+            <div class="website-title">@lang('frontend.website.name')</div>
+            <div class="hamburger-menu">
+                <a href="javascript:"><img src="{{ asset('assets/menu-icon.png') }}" /></a>
+            </div>
+        </div>
         @include('layout.partials.menu', [ 'menu' => $header_menu ])
-        <ul>
+        {{--<ul>--}}
             {{--<li><a href="javascript:">Абітурієнту</a></li>--}}
             {{--<li><a href="javascript:">Навчання</a></li>--}}
             {{--<li><a href="javascript:">Наука</a></li>--}}
             {{--<li><a href="javascript:">Міжнародна діяльність</a></li>--}}
             <!--<li><a href="javascript:">Студентське самоврядування</a></li>-->
-        </ul>
+        {{--</ul>--}}
         <div class="search-form-container">
-            <form action="javascript:">
+            <form action="{{ route('search.index') }}">
                 <div class="search-field-container">
-                    <input type="text" name="request" id="request" class="search-field" placeholder="пошук" />
+                    <input type="text" name="query" id="request" class="search-field" placeholder="пошук" @if(isset($query) && !empty($query)) value="{{ $query }}" @endif />
+                    <div class="clearfix"></div>
                 </div>
+                <div class="clearfix"></div>
             </form>
         </div>
         <div class="clearfix"></div>
     </div>
 </div>
-@if($current_page === 'homepage')
-@foreach($promoted_posts as $post)
-<div class="header-slider content-wrapper" style="background-image: url('{{ $post->preview->getThumbnailPath('promo') }}');">
+@if($current_page === 'homepage' && $promoted_posts->count() > 0)
+<div class="header-slider content-wrapper">
+    @if($promoted_posts->count() > 1)
     <div class="slider-navigation-previous"><img src="/assets/slider-previous-icon.png" /></div>
     <div class="slider-navigation-forward"><img src="/assets/slider-forward-icon.png" /></div>
-    <div class="header-slider-description">
+    @endif
+
+    @foreach($promoted_posts as $key => $post)
+    <div class="header-slider-description @if(!$loop->first) hidden @endif" data-background="{{ $post->preview->getThumbnailPath('promo') }}">
         <div class="slider-description-title"><h2>{{ $post->title }}</h2></div>
-        <div class="slider-description-content"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem fuga necessitatibus placeat reprehenderit similique totam!</span></div>
+        <div class="slider-description-content"><span>{{ strip_tags($post->getShortText()) }}</span></div>
         <div class="slider-description-button"><a href="{{ $post->getUrl() }}">Перейти до запису</a></div>
     </div>
+    @endforeach
 </div>
-@endforeach
 @endif
 <div class="content-wrapper">
     <div class="app-container">
@@ -66,12 +77,24 @@
                 @yield('content')
             </div>
             <div class="app-content-sidebar">
-                <div class="sidebar-block">
-                    <div class="sidebar-block-title">Оголошення</div>
-                    <div class="sidebar-block-content">
-                        <img src="http://via.placeholder.com/224x224" />
+                {{--<div class="sidebar-block">--}}
+                    {{--<div class="sidebar-block-title">Оголошення</div>--}}
+                    {{--<div class="sidebar-block-content">--}}
+                        {{--<img src="http://via.placeholder.com/224x224" />--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+                @php($events = \App\Event::latest()->get())
+                @if($events->count() > 0)
+                    <div class="events-list">
+                        <div class="events-list-title">@lang('app.events.title')</div>
+                        @foreach($events as $event)
+                            <a class="events-list-item" href="{{ $event->post->getUrl() }}">
+                                <div class="event-title">{{ $event->title }}</div>
+                                <span class="event-date">{{ $event->event_at }}</span>
+                            </a>
+                        @endforeach
                     </div>
-                </div>
+                @endif
                 @foreach($menus['right-sidebar'] as $menu)
                     <div class="sidebar-block">
                         <div class="sidebar-block-title">{{ $menu->name }}</div>

@@ -1,0 +1,22 @@
+@import "../variables";
+@import "../mixins";
+
+$sidebar-block-title-margin-bottom: 17px;
+$sidebar-block-title-line-height: 18px;
+
+.sidebar-block {
+  width: $app-sidebar-block-width;
+
+  margin-bottom: $app-base-offset;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .sidebar-block-title {
+    line-height: $sidebar-block-title-line-height;
+    font-weight: bold;
+    margin-bottom: $sidebar-block-title-margin-bottom;
+    text-transform: uppercase;
+  }
+}

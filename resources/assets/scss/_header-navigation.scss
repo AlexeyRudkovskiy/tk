@@ -1,0 +1,108 @@
+@import "variables";
+@import "mixins";
+
+$header-navigation-text-base-color: #ffffff;
+$header-navigation-text-color-with-opacity: rgba($header-navigation-text-base-color, 0.75);
+$header-navigation-search-field-background-color: rgba(black, 0.25);
+
+.header-container {
+  .header-navigation {
+
+    box-sizing: border-box;
+    padding-left: $app-content-side-padding;
+    padding-right: $app-content-side-padding;
+
+    .mobile-navigation-header {
+      display: none;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        display: inline-block;
+        float: left;
+
+        margin-right: 24px;
+
+        &:last-of-type {
+          margin-right: 0;
+        }
+
+        a {
+          text-transform: uppercase;
+          display: block;
+          margin-top: 21px;
+          margin-bottom: 21px;
+          color: $header-navigation-text-color-with-opacity;
+          text-decoration: none;
+          font-weight: 300;
+          height: 18px;
+          transition: 0.1s color;
+
+          &:hover {
+            color: $header-navigation-text-base-color;
+          }
+        }
+      }
+    }
+
+    .search-form-container {
+      float: right;
+
+      form {
+        .search-field-container {
+          position: relative;
+          top: 12px;
+          width: 262px;
+
+          &::before {
+            content: '';
+            background-image: url('/assets/search-icon.png');
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            top: 9px;
+            left: 9px;
+
+            opacity: 0.75;
+          }
+
+          &::before + .search-field:focus {
+            //&::before {
+              opacity: 1;
+            //}
+          }
+
+          .search-field {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            border: none;
+            padding-top: 10px;
+            padding-bottom: 9px;
+            padding-left: 35px;
+            outline: none;
+            line-height: 16px;
+            font-size: 14px;
+
+            color: $header-navigation-text-color-with-opacity;
+            background-color: $header-navigation-search-field-background-color;
+            font-weight: 300;
+            border-radius: 3px;
+
+            &::placeholder {
+              color: $header-navigation-text-color-with-opacity;
+            }
+
+            &:focus {
+              color: $header-navigation-text-base-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}

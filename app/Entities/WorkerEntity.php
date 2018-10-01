@@ -14,6 +14,8 @@ use ARudkovskiy\Admin\Contracts\AbstractEntity;
 use ARudkovskiy\Admin\EntityFields\DateField;
 use ARudkovskiy\Admin\EntityFields\FileField;
 use ARudkovskiy\Admin\EntityFields\IdField;
+use ARudkovskiy\Admin\EntityFields\NumberField;
+use ARudkovskiy\Admin\EntityFields\TextAreaField;
 use ARudkovskiy\Admin\EntityFields\TextField;
 
 class WorkerEntity extends AbstractEntity
@@ -31,7 +33,25 @@ class WorkerEntity extends AbstractEntity
             DateField::create('work_from')
                 ->showInIndexTable()
                 ->setOrderInIndexTable(2),
-            FileField::create('photo')
+            FileField::create('photo'),
+            NumberField::create('order')
+                ->setOptions([
+                    'attributes' => [
+                        'placeholder' => '100'
+                    ]
+                ]),
+            TextAreaField::create('small_description')
+                ->setOptions([
+                    'attributes' => [
+                        'rows' => 5
+                    ]
+                ]),
+            TextAreaField::create('description')
+                ->setOptions([
+                    'attributes' => [
+                        'rows' => 10
+                    ]
+                ])
         ];
     }
 

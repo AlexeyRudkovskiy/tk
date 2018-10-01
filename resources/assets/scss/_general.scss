@@ -1,0 +1,41 @@
+@import "variables";
+
+$body-background-color: rgba(black, 0.05);
+
+body {
+  padding: 0;
+  margin: 0;
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: $app-base-text-color;
+  background-color: $body-background-color;
+}
+
+.content-wrapper {
+  max-width: $app-content-width;
+  min-width: $app-container-min-width;
+  margin: 0 auto;
+}
+
+.container-wrapper {
+  max-width: $app-container-width;
+  min-width: $app-container-min-width;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding-left: $app-base-offset;
+  padding-right: $app-base-offset;
+}
+
+.clearfix {
+  clear: both;
+  overflow: hidden;
+}
+
+.zoomable-image {
+  cursor: zoom-in;
+}
+
+.offset-top {
+  margin-top: $app-base-offset;
+}

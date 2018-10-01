@@ -1,0 +1,9 @@
+@import "../variables";
+@import "../mixins";
+
+.post-content {
+  .post-video {
+    margin-top: $app-base-offset;
+    margin-bottom: $app-base-offset;
+  }
+}

@@ -1,0 +1,51 @@
+@import "../variables";
+@import "../mixins";
+
+ul.pagination {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    float: left;
+    margin-right: $app-padding;
+
+    &.active {
+      a, span {
+        background-color: $app-blue-color;
+        color: rgba(white, 0.8);
+        padding: 3px 6px 2px 7px;
+        border-radius: 20px;
+
+        box-sizing: border-box;
+      }
+    }
+
+    &.disabled {
+      a {
+        color: rgba($app-base-text-color, 0.5);
+      }
+    }
+
+    &.pagination-forward, &.pagination-previous {
+      &:not(.pagination-disabled) {
+        a {
+          color: $app-blue-color;
+
+          &:hover {
+            color: $app-blue-color-darken;
+          }
+        }
+      }
+    }
+
+    span, a, .page-link {
+      color: rgba($app-base-text-color, .5);
+      text-decoration: none;
+      font-size: 14px;
+      line-height: 14px * 1.25;
+
+      user-select: none;
+    }
+  }
+}

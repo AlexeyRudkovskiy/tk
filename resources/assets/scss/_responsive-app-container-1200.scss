@@ -1,0 +1,11 @@
+@import "variables";
+@import "mixins";
+
+.app-container {
+  .app-sidebar {
+    padding-left: $app-base-offset;
+  }
+  .app-content-container {
+    padding-right: $app-base-offset;
+  }
+}

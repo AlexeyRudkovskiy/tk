@@ -11,6 +11,7 @@ namespace App\Entities;
 use App\EntityFields\AuthorField;
 use App\Post;
 use ARudkovskiy\Admin\Contracts\AbstractEntity;
+use ARudkovskiy\Admin\EntityFields\BooleanField;
 use ARudkovskiy\Admin\EntityFields\CategoriesField;
 use ARudkovskiy\Admin\EntityFields\FileField;
 use ARudkovskiy\Admin\EntityFields\IdField;
@@ -53,11 +54,11 @@ class PostEntity extends AbstractEntity
                     'field' => 'title'
                 ]
             ]),
-            WYSIWYGField::create('content'),
-            AuthorField::create('author')
-                ->showInIndexTable()
-                ->setOrderInIndexTable(3)
-                ->setWidth(350),
+            WYSIWYGField::create('content')
+                ->setOptions([
+                    'save_without_slashes' => 'content_text'
+                ]),
+            AuthorField::create('author'),
             CategoriesField::create('categories')
                 ->setOptions([
                     'location' => 'sidebar'
@@ -66,6 +67,13 @@ class PostEntity extends AbstractEntity
                 ->setOptions([
                     'location' => 'sidebar'
                 ]),
+            BooleanField::create('is_promoting')
+                ->setOptions([
+                    'location' => 'sidebar'
+                ])
+                ->showInIndexTable()
+                ->setOrderInIndexTable(3)
+                ->setWidth(250),
             StaticField::create('views', null, function ($value, $record) {
                 return $record->getUniqueViews();
             })

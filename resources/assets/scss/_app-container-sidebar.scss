@@ -1,0 +1,9 @@
+@import "variables";
+
+.app-sidebar {
+
+  -js-display: flex;
+  display: flex;
+
+  flex-direction: column;
+}

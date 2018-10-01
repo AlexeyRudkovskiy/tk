@@ -1,0 +1,37 @@
+.admin-toolbar {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.9);
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+}
+
+.admin-toolbar .admin-toolbar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.admin-toolbar .admin-toolbar-list .admin-toolbar-list-item {
+  margin-right: 15px;
+}
+
+.admin-toolbar .admin-toolbar-list .admin-toolbar-list-item:last-child {
+  margin-right: 0;
+}
+
+.admin-toolbar .admin-toolbar-list .admin-toolbar-list-item a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+}
+
+.admin-toolbar .admin-toolbar-list .admin-toolbar-list-item a:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+

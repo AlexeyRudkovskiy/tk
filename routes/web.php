@@ -13,3 +13,8 @@
 
 Route::get('/', 'DefaultController@index')->name('homepage');
 Route::get('/post/{post}', 'PostController@show')->name('post.show');
+
+Route::get('/employees', 'EmployeesController@index')->name('employees.index');
+Route::get('/employees/{employer}', 'EmployeesController@show')->name('employees.show');
+
+Route::get('/search', 'SearchController@index')->name('search.index');

@@ -1,0 +1,82 @@
+@import "../variables";
+@import "../mixins";
+
+$slider-height: 493px;
+$slider-description-offset: 12px;
+$slider-navigation-icon-height: 40px;
+
+.header-slider {
+  height: $slider-height;
+  background-size: cover;
+
+  position: relative;
+
+  .slider-navigation-previous, .slider-navigation-forward {
+    position: absolute;
+    top: 50%;
+    margin-top: -$slider-navigation-icon-height / 2;
+    opacity: 0.5;
+    transition: 0.1s opacity;
+
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+
+  .slider-navigation-previous {
+    left: $app-base-offset;
+  }
+
+  .slider-navigation-forward {
+    right: $app-base-offset;
+  }
+
+  .header-slider-description {
+    position: absolute;
+    bottom: $app-base-offset;
+    left: $app-content-side-padding;
+
+    min-width: 75%;
+    max-width: 75%;
+
+    &.hidden {
+      display: none;
+    }
+
+    .slider-description-title {
+      h2 {
+        margin: 0;
+        text-shadow: 0 3px 12px rgba(black, 0.25);
+        color: white;
+        font-size: 48px;
+        font-weight: 400;
+      }
+    }
+
+    .slider-description-content {
+      text-shadow: 0 3px 12px rgba(black, 0.25);
+      color: white;
+      font-size: 24px;
+      font-weight: 400;
+      max-width: 75%;
+      margin-top: $slider-description-offset;
+    }
+
+    .slider-description-button {
+      margin-top: $slider-description-offset;
+
+      a {
+        display: inline-block;
+        color: white;
+        font-size: 16px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-decoration: none;
+        background-color: $app-green-color;
+        padding: 9px 12px;
+        border-radius: 3px;
+        user-select: none;
+      }
+    }
+  }
+}

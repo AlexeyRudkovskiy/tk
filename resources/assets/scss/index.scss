@@ -1,0 +1,54 @@
+@import "~normalize.css";
+
+@import "general";
+@import "links";
+
+@import "header-general";
+@import "header-navigation";
+
+@import "app-container-general";
+@import "app-container-sidebar";
+@import "app-container-content";
+
+@import "footer-general";
+@import "footer-single-line";
+
+@import "components/menu";
+@import "components/post";
+@import "components/sidebar-block";
+@import "components/pagination";
+@import "components/slider";
+
+// Post components
+@import "components/gallery";
+@import "components/video";
+@import "components/table";
+@import "components/gallery-popup";
+@import "components/image";
+
+@import "components/employeers";
+@import "components/search-results";
+@import "components/events";
+
+@media screen and (max-width: 1366px) {
+  @import "responsive-header-navigation-1366";
+}
+
+@media screen and (max-width: 1200px) {
+  @import "responsive-header-navigation-1200";
+  @import "responsive-app-container-1200";
+}
+
+@media screen and (max-width: 1300px) {
+  @import "responsive-app-container-content-1300";
+}
+
+@media screen and (max-width: 480px) {
+  @import "responsive-header-navigation-480";
+
+  @import "responsive-content-wrapper-480";
+  @import "responsive-app-container-480";
+  @import "responsive-app-container-content-480";
+
+  @import "responsive-footer-general-480";
+}

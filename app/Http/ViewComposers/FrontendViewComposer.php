@@ -26,6 +26,7 @@ class FrontendViewComposer
 
         $viewData = $view->getData();
         $menus = [ 'left-sidebar' => collect([]), 'right-sidebar' => collect([]) ];
+        $toolbarItems = [];
 
         if (array_key_exists('_menus', $viewData)) {
             $viewData['_menus']
@@ -38,10 +39,21 @@ class FrontendViewComposer
                 });
         }
 
+        /** @var AdminContainerInterface $adminContainer */
+        $adminContainer = app()->make(AdminContainerInterface::class);
+        $entities = $adminContainer->getEntities();
+        foreach ($entities as $entity) {
+            array_push($toolbarItems, [
+                'url' => route('admin.crud.create', [ 'entity' => $entity->getShortName() ]),
+                'text' => $entity->translate('toolbar.create')
+            ]);
+        }
+
         view()->share('current_page', \Route::getCurrentRoute()->getName());
         view()->share('menus', $menus);
         view()->share('header_menu', $headerMenu);
         view()->share('promoted_posts', Post::promoted()->latest()->get());
+        view()->share('toolbarItems', $toolbarItems);
     }
 
 }

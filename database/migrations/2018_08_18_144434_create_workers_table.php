@@ -20,6 +20,10 @@ class CreateWorkersTable extends Migration
             $table->date('work_from');
 
             $table->integer('photo_id', false, true);
+            $table->integer('order', false, true)->default(100);
+
+            $table->text('description');
+            $table->text('small_description');
 
             $table->timestamps();
 

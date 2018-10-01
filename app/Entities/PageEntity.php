@@ -41,13 +41,20 @@ class PageEntity extends AbstractEntity
                 ->setOptions([
                     'location' => 'sidebar',
                     'attributes' => [
-                        'disabled' => true
+                        'placeholder' => $this->translate('field.slug')
+                    ],
+                    'config' => [
+                        'field' => 'title',
+                        'manually' => true
                     ]
                 ]),
             AuthorField::create('author')
                 ->showInIndexTable()
                 ->setOrderInIndexTable(3),
-            WYSIWYGField::create('content'),
+            WYSIWYGField::create('content')
+                ->setOptions([
+                    'save_without_slashes' => 'content_text'
+                ]),
             CategoriesField::create('categories')
                 ->setOptions([
                     'location' => 'sidebar'
