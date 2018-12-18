@@ -9,6 +9,12 @@
             {!! $page->content !!}
         </div>
         <div class="clearfix"></div>
+        @if($is_admin)
+        <div class="post-footer">
+            <a href="{{ route('admin.crud.edit', [ 'entity' => 'page', 'id' => $page->id ]) }}">Редагувати</a>
+        </div>
+        @endif
+        <div class="clearfix"></div>
     </div>
 @endsection
 @push('footer')

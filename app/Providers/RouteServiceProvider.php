@@ -39,6 +39,10 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
+        if (!\Schema::hasTable('routes') || !class_exists(\ARudkovskiy\Admin\Models\Route::class)) {
+            return;
+        }
+
         $path = request()->path();
         if (!starts_with($path, '/')) {
             $path = '/' . $path;
@@ -46,12 +50,15 @@ class RouteServiceProvider extends ServiceProvider
 
         $dynamicRouterRule = \ARudkovskiy\Admin\Models\Route::whereUrl($path)->first();
         if ($dynamicRouterRule !== null) {
-            \Route::get($dynamicRouterRule->url, function () use ($dynamicRouterRule) {
-                $action = $dynamicRouterRule->action;
-                $argument = $dynamicRouterRule->routable;
+            \Route::middleware('web')
+                ->group(function () use ($dynamicRouterRule) {
+                    \Route::get($dynamicRouterRule->url, function () use ($dynamicRouterRule) {
+                        $action = $dynamicRouterRule->action;
+                        $argument = $dynamicRouterRule->routable;
 
-                return \App::call($action, [ $argument ]);
-            });
+                        return \App::call($action, [ $argument ]);
+                    });
+                });
         }
     }
 

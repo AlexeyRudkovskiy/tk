@@ -8,8 +8,15 @@
             <div class="post-container post-small">
                 <h2 class="post-title"><a href="{{ route('post.show', [ 'post' => $post ]) }}">{{ $post->title }}</a></h2>
                 <div class="post-content">
-                    @if($post->preview !== null)
-                        <img src="{{ $post->preview->getFullPathForThumbnail('150x150') }}" class="post-thumbnail" />
+                    @if(!$post->is_old_post)
+                        @if($post->preview !== null)
+                            <img src="{{ $post->preview->getFullPathForThumbnail('150x150') }}" class="post-thumbnail" />
+                        @endif
+                    @else
+                        @php($preview = $post->meta('preview'))
+                        @if($preview != null)
+                            <img src="{{ $preview->value }}" class="post-thumbnail" />
+                        @endif
                     @endif
                     {!! $post->getShortText() !!}
                 </div>

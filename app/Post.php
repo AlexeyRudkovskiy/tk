@@ -20,7 +20,8 @@ class Post extends Model
 
     protected $casts = [
         'content_schema' => 'json',
-        'is_promoting' => 'boolean'
+        'is_promoting' => 'boolean',
+        'is_old_post' => 'boolean'
     ];
 
     protected $searchable = [
@@ -79,11 +80,41 @@ class Post extends Model
     }
 
     public function getFullText() {
+        if ($this->is_old_post) {
+            $readMoreToken = '<p>[read-more]</p>';
+            $preview_part = strpos($this->content, $readMoreToken);
+            if ($preview_part !== false) {
+                return substr($this->content, $preview_part + strlen($readMoreToken));
+            }
+        }
         return str_replace('<p>[read-more]</p>', '', $this->content);
     }
 
     public function scopePromoted(Builder $query) {
         return $query->where('is_promoting', true);
+    }
+
+    public function metas()
+    {
+        return $this->hasMany(PostMeta::class);
+    }
+
+    /**
+     * @param $key
+     * @return PostMeta
+     */
+    public function meta($key)
+    {
+        $meta = $this->metas()->where('key', $key)->first();
+        return $meta;
+    }
+
+    public function scopeSlug(Builder $builder, string $slug) {
+        return $builder->where('slug', $slug);
+    }
+
+    public function scopeTitle(Builder $builder, string $title) {
+        return $builder->where('title', $title);
     }
 
 }

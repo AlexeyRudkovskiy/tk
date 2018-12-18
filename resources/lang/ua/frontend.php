@@ -2,6 +2,6 @@
 
 return [
     "website" => [
-        "name" => "Website Name"
+        "name" => "Торговий коледж ЗНУ"
     ]
 ];

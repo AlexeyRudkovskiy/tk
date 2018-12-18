@@ -22,7 +22,8 @@ class PageController extends Controller
 
         return view('page.show')
             ->with('page', $page)
-            ->with('_menus', $menus);
+            ->with('_menus', $menus)
+            ->with('is_admin', session()->has('user_id'));
     }
 
 }

@@ -19,7 +19,7 @@ class FrontendViewComposer
 
     public function compose(View $view)
     {
-        $headerMenu = Menu::whereTag('header')->first();
+        $headerMenu = Menu::where('location', 'header')->orWhere('tag', 'header')->orderBy('order', 'desc')->first();
         if ($headerMenu === null) {
             $headerMenu = new Menu();
         }

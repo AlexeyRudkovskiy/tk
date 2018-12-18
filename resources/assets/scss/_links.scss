@@ -1,1 +1,12 @@
 @import "variables";
+
+.app-content {
+  a {
+    color: $app-blue-color;
+    text-decoration: underline;
+
+    &:hover {
+      color: $app-blue-color-darken;
+    }
+  }
+}

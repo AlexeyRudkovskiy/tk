@@ -9,6 +9,7 @@ use ARudkovskiy\Admin\Models\User;
 use ARudkovskiy\Admin\Traits\Menuable;
 use ARudkovskiy\Admin\Traits\Routable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class Page extends Model
 {
@@ -20,6 +21,15 @@ class Page extends Model
     protected $searchable = [
         'title', 'content'
     ];
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function(Page $page) {
+            $page->route()->delete();
+        });
+    }
 
     public function author()
     {
@@ -54,6 +64,10 @@ class Page extends Model
     public function getRoutedUrl(): string
     {
         return '/' . $this->slug;
+    }
+
+    public function scopeTitle(Builder $builder, string $title) {
+        return $builder->where('title', $title);
     }
 
 }

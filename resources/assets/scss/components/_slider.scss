@@ -5,11 +5,15 @@ $slider-height: 493px;
 $slider-description-offset: 12px;
 $slider-navigation-icon-height: 40px;
 
-.header-slider {
+.header-hero {
   height: $slider-height;
   background-size: cover;
 
   position: relative;
+
+  &.header-small {
+    height: 200px;
+  }
 
   .slider-navigation-previous, .slider-navigation-forward {
     position: absolute;
@@ -31,7 +35,7 @@ $slider-navigation-icon-height: 40px;
     right: $app-base-offset;
   }
 
-  .header-slider-description {
+  .header-hero-description {
     position: absolute;
     bottom: $app-base-offset;
     left: $app-content-side-padding;
@@ -43,7 +47,7 @@ $slider-navigation-icon-height: 40px;
       display: none;
     }
 
-    .slider-description-title {
+    .hero-description-title {
       h2 {
         margin: 0;
         text-shadow: 0 3px 12px rgba(black, 0.25);
@@ -53,7 +57,7 @@ $slider-navigation-icon-height: 40px;
       }
     }
 
-    .slider-description-content {
+    .hero-description-content {
       text-shadow: 0 3px 12px rgba(black, 0.25);
       color: white;
       font-size: 24px;
@@ -62,7 +66,7 @@ $slider-navigation-icon-height: 40px;
       margin-top: $slider-description-offset;
     }
 
-    .slider-description-button {
+    .hero-description-button {
       margin-top: $slider-description-offset;
 
       a {

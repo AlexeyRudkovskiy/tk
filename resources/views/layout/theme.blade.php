@@ -28,22 +28,12 @@
         <div class="clearfix"></div>
     </div>
 </div>
-@if($current_page === 'homepage' && $promoted_posts->count() > 0)
-<div class="header-slider content-wrapper">
-    @if($promoted_posts->count() > 1)
-    <div class="slider-navigation-previous"><img src="/assets/slider-previous-icon.png" /></div>
-    <div class="slider-navigation-forward"><img src="/assets/slider-forward-icon.png" /></div>
-    @endif
-
-    @foreach($promoted_posts as $key => $post)
-    <div class="header-slider-description @if(!$loop->first) hidden @endif" data-background="{{ $post->preview->getThumbnailPath('promo') }}">
-        <div class="slider-description-title"><h2>{{ $post->title }}</h2></div>
-        <div class="slider-description-content"><span>{{ strip_tags($post->getShortText()) }}</span></div>
-        <div class="slider-description-button"><a href="{{ $post->getUrl() }}">Перейти до запису</a></div>
+<div class="header-hero content-wrapper @if($current_page !== 'homepage') header-small @endif" style="background-image: url({{ asset('header-photo.jpg') }})">
+    <div class="header-hero-description">
+        <div class="hero-description-title"><h2>Торговий коледж</h2></div>
+        <div class="hero-description-content"><span>Запорізького національного університету</span></div>
     </div>
-    @endforeach
 </div>
-@endif
 <div class="content-wrapper">
     <div class="app-container">
         <div class="app-sidebar">
@@ -83,12 +73,12 @@
                         {{--<img src="http://via.placeholder.com/224x224" />--}}
                     {{--</div>--}}
                 {{--</div>--}}
-                @php($events = \App\Event::latest()->get())
+                @php($events = \App\Event::latest()->where('event_at', '>', \Illuminate\Support\Carbon::now())->get())
                 @if($events->count() > 0)
                     <div class="events-list">
                         <div class="events-list-title">@lang('app.events.title')</div>
                         @foreach($events as $event)
-                            <a class="events-list-item" href="{{ $event->post->getUrl() }}">
+                            <a class="events-list-item" href="@if($event->post !== null){{ $event->post->getUrl() }}@endif">
                                 <div class="event-title">{{ $event->title }}</div>
                                 <span class="event-date">{{ $event->event_at }}</span>
                             </a>
