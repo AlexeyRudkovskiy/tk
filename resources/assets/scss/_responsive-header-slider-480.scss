@@ -1,0 +1,34 @@
+@import "variables";
+
+.header-hero {
+  height: auto;
+
+  &.header-small {
+    display: none;
+  }
+
+  .slider-navigation-previous, .slider-navigation-forward {
+    display: none;
+  }
+
+  .header-hero-description {
+    position: static;
+    max-width: 100%;
+    min-width: 0;
+
+    box-sizing: border-box;
+    padding: $app-padding;
+
+    .hero-description-title {
+      h2 {
+        font-size: 2.25rem;
+      }
+    }
+
+    .hero-description-content {
+      font-size: 1.5rem;
+      max-width: 100%;
+      min-width: 0;
+    }
+  }
+}

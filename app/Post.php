@@ -7,6 +7,7 @@ use ARudkovskiy\Admin\Models\Category;
 use ARudkovskiy\Admin\Models\File;
 use ARudkovskiy\Admin\Models\User;
 use ARudkovskiy\Admin\Traits\Menuable;
+use Carbon\Carbon;
 use CyrildeWit\EloquentViewable\Viewable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -115,6 +116,27 @@ class Post extends Model
 
     public function scopeTitle(Builder $builder, string $title) {
         return $builder->where('title', $title);
+    }
+
+    public function getFormattedDate()
+    {
+        /** @var Carbon $createdAt */
+        $createdAt = $this->created_at;
+        $formatted = '';
+        $daysOfWeek = ['Нд', 'Пн', 'Вв', 'Ср', 'Чт', 'Пт', 'Сб'];
+
+        $dayOfWeek = $createdAt->dayOfWeek;
+
+        $day = '00' . $createdAt->day;
+        $month = '00' . $createdAt->month;
+        $year = $createdAt->year;
+        $day = substr($day, -2);
+        $month = substr($month, -2);
+
+        $date = [ $day, $month, $year ];
+        $formatted = $daysOfWeek[$dayOfWeek] . ', ' . implode('/', $date);
+
+        return $formatted;
     }
 
 }

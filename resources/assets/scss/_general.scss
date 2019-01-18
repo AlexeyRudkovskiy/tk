@@ -39,3 +39,8 @@ body {
 .offset-top {
   margin-top: $app-base-offset;
 }
+
+.displayed-category {
+  margin: 0;
+  margin-bottom: $app-padding * 2;
+}

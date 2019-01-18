@@ -13,11 +13,20 @@ class DefaultController extends Controller
     {
         $posts = Post::latest()->paginate(config('frontend.pagination.on_page'));
 
-
-
         return view('welcome')
             ->with('posts', $posts)
             ->with('category', new Category());
     }
-    
+
+    public function category(Category $category)
+    {
+        $posts = $category->morphedRecords(Post::class)
+            ->orderBy('created_at', 'desc')
+            ->paginate(config('frontend.pagination.on_page'));
+
+        return view('welcome')
+            ->with('posts', $posts)
+            ->with('category', $category);
+    }
+
 }

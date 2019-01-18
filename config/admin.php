@@ -61,7 +61,8 @@ return [
                 'by' => 'order',
                 'type' => 'asc'
             ],
-            'fields' => [ 'text' => 'full_name', 'value' => 'id' ]
+            'fields' => [ 'text' => 'full_name', 'value' => 'id' ],
+            'allow_empty' => true
         ],
         [
             'name' => 'director_slogan',

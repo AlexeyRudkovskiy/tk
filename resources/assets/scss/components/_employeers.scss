@@ -1,5 +1,15 @@
 @import "../variables";
 
+.employees-list {
+  .employer {
+    margin-top: $app-padding;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
 .employer {
   display: flex;
   align-items: flex-start;

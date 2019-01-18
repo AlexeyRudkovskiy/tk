@@ -22,7 +22,7 @@
                 </div>
                 <div class="clearfix"></div>
                 <div class="post-footer">
-                    <span class="published-at">Птн, 27/04/2018</span>
+                    <span class="published-at">{{ $post->getFormattedDate() }}</span>
                     <div class="post-small-read-more-link"><a href="/post/{{ $post->slug }}">Подробнее</a></div>
                 </div>
             </div>

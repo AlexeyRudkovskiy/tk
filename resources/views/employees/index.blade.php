@@ -2,7 +2,9 @@
 
 @section('title', trans('app.employees.title'))
 @section('content')
-    @foreach($employees as $employer)
-        @include('employees.employer', [ 'employer' => $employer ])
-    @endforeach
+    <div class="employees-list">
+        @foreach($employees as $employer)
+            @include('employees.employer', [ 'employer' => $employer ])
+        @endforeach
+    </div>
 @endsection

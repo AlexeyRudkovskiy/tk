@@ -15,6 +15,7 @@ use ARudkovskiy\Admin\EntityFields\BooleanField;
 use ARudkovskiy\Admin\EntityFields\CategoriesField;
 use ARudkovskiy\Admin\EntityFields\FileField;
 use ARudkovskiy\Admin\EntityFields\IdField;
+use ARudkovskiy\Admin\EntityFields\MetaBoolField;
 use ARudkovskiy\Admin\EntityFields\SimpleRelationField;
 use ARudkovskiy\Admin\EntityFields\SlugField;
 use ARudkovskiy\Admin\EntityFields\StaticField;
@@ -67,13 +68,10 @@ class PostEntity extends AbstractEntity
                 ->setOptions([
                     'location' => 'sidebar'
                 ]),
-            BooleanField::create('is_promoting')
+            MetaBoolField::create('hide_preview_on_page')
                 ->setOptions([
                     'location' => 'sidebar'
-                ])
-                ->showInIndexTable()
-                ->setOrderInIndexTable(3)
-                ->setWidth(250),
+                ]),
             StaticField::create('views', null, function ($value, $record) {
                 return $record->getUniqueViews();
             })

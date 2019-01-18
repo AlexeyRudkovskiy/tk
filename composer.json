@@ -4,15 +4,9 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
-    "repositories": [
-        {
-            "type": "path",
-            "url": "../tk-admin.dev"
-        }
-    ],
     "require": {
         "php": ">=7.0.0",
-        "arudkovskiy/admin": "dev-master",
+        "arudkovskiy/admin": "V1.1",
         "cocur/slugify": "^3.1",
         "cyrildewit/eloquent-viewable": "^2.3",
         "fideloper/proxy": "~3.3",

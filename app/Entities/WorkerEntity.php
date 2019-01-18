@@ -39,7 +39,8 @@ class WorkerEntity extends AbstractEntity
                     'attributes' => [
                         'placeholder' => '100'
                     ]
-                ]),
+                ])
+                ->setDefault(100),
             TextAreaField::create('small_description')
                 ->setOptions([
                     'attributes' => [

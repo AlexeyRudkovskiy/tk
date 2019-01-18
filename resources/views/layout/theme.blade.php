@@ -73,7 +73,7 @@
                         {{--<img src="http://via.placeholder.com/224x224" />--}}
                     {{--</div>--}}
                 {{--</div>--}}
-                @php($events = \App\Event::latest()->where('event_at', '>', \Illuminate\Support\Carbon::now())->get())
+                @php($events = \App\Event::orderBy('event_at', 'desc')->where('event_at', '>', \Illuminate\Support\Carbon::now())->get())
                 @if($events->count() > 0)
                     <div class="events-list">
                         <div class="events-list-title">@lang('app.events.title')</div>

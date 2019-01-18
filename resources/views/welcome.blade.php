@@ -1,6 +1,9 @@
 @extends('layout.theme')
 
 @section('content')
+    @if($category->id !== null)
+        <h1 class="displayed-category">{{ $category->name }}</h1>
+    @endif
     @foreach($posts as $post)
         <div class="post-container post-small">
             <h2 class="post-title"><a href="{{ route('post.show', [ 'post' => $post ]) }}">{{ $post->title }}</a></h2>
@@ -19,7 +22,7 @@
             </div>
             <div class="clearfix"></div>
             <div class="post-footer">
-                <span class="published-at">Птн, 27/04/2018</span>
+                <span class="published-at">{{ $post->getFormattedDate() }}</span>
                 <div class="post-small-read-more-link"><a href="/post/{{ $post->slug }}">Подробнее</a></div>
             </div>
         </div>
